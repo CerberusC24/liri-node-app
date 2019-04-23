@@ -22,7 +22,8 @@ Week 5 / Unit 10 - Node HW
   
 Instructions:
 
-======================================================
+=================================================
+
 You Can Do a Few Things With This App.
 
 Use the following commands to search:
@@ -42,7 +43,8 @@ To search movie info
 
 4. just-do-it: 
 Randomly selects one of the above searches
-======================================================
+
+=================================================
 
 https://raw.githubusercontent.com/cerberusc24/liri-node-app/master/readme_pics/User-Forgets-Command.jpg
 https://raw.githubusercontent.com/cerberusc24/liri-node-app/master/readme_pics/User-Forgets-Band-Name.jpg
