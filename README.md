@@ -46,11 +46,12 @@ Randomly selects one of the above searches
 
 =================================================
 
-https://raw.githubusercontent.com/cerberusc24/liri-node-app/master/readme_pics/User-Forgets-Command.jpg
-https://raw.githubusercontent.com/cerberusc24/liri-node-app/master/readme_pics/User-Forgets-Band-Name.jpg
-https://raw.githubusercontent.com/cerberusc24/liri-node-app/master/readme_pics/User-Forgets-Track-Name.jpg
-https://raw.githubusercontent.com/cerberusc24/liri-node-app/master/readme_pics/User-Forgets-Movie-Name.jpg
-https://raw.githubusercontent.com/cerberusc24/liri-node-app/master/readme_pics/concert-this-result.jpg
-https://raw.githubusercontent.com/cerberusc24/liri-node-app/master/readme_pics/movie-this-result.jpg
-https://raw.githubusercontent.com/cerberusc24/liri-node-app/master/readme_pics/spotify-result.jpg
-https://raw.githubusercontent.com/cerberusc24/liri-node-app/master/readme_pics/just-do-it-result.jpg
+https://raw.githubusercontent.com/CerberusC24/liri-node-app/master/readme_pics/User-Forgets-Command.png
+https://raw.githubusercontent.com/CerberusC24/liri-node-app/master/readme_pics/User-Forgets-Band-Name.png
+https://raw.githubusercontent.com/CerberusC24/liri-node-app/master/readme_pics/User-Forgets-Movie-Name.png
+https://raw.githubusercontent.com/CerberusC24/liri-node-app/master/readme_pics/User-Forgets-Track-Name.png
+https://raw.githubusercontent.com/CerberusC24/liri-node-app/master/readme_pics/concert-this-results.png
+https://raw.githubusercontent.com/CerberusC24/liri-node-app/master/readme_pics/User-Forgets-Movie-Name.png
+https://raw.githubusercontent.com/CerberusC24/liri-node-app/master/readme_pics/spotify-result.png
+https://raw.githubusercontent.com/CerberusC24/liri-node-app/master/readme_pics/just-do-it-result.png
+
