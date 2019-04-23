@@ -57,22 +57,19 @@ switch (action) {
 }
 
 function concert() {
+
+  if (searchQuery === "") {
+    console.log(`You forgot to search for a band name. You lose. You get nothing. Good day, sir.`);
+    return false;
+  }
+
   axios
-    .get(`https://rest.bandsintown.com/artists/${searchQuery.trim()}/events?app_id=codingbootcamp`)
+    .get(`https://rest.bandsintown.com/artists/${searchQuery}/events?app_id=codingbootcamp`)
     .then(function (response) {
 
-      if (!searchQuery) {
-        console.log(`
 
-      You forgot to search for a band name. You lose. You get nothing. Good day, sir.
 
-      ====================
-      Venue Name:
-      Location:
-      Event Date:
-      ====================
-`)
-      } else if (!response.data[1].venue) {
+      if (!response.data[0]) {
 
         console.log(`Sorry, that artist doesn't have any upcoming events`);
 
@@ -87,19 +84,37 @@ function concert() {
       Event Date: ${moment(response.data[3]).format("MM-DD-YYYY")}
       =================================
 `);
+
         }
       }
     })
+
     .catch(function (err) {
       console.log(err);
     });
 }
 
 function spotifyThis() {
+
+  if (!searchQuery) {
+    console.log(`
+
+  You forgot to search for a song. You ought to know better.
+
+  ============================================
+  Artist: Alanis Morissette
+  Song Title: You Oughta Know - 2015 Remaster
+  Album Name: Jagged Little Pill (Remastered)
+  Preview: https://p.scdn.co/mp3-preview/02c878f0d34bbcc4bf6a41236b6db697e52df11e?cid=b5ab8bcde06d410dbb01f07d9a8675a2
+  ============================================
+`)
+    return false;
+  }
+
   spotify
     .search({
       type: "track",
-      limit: 50,
+      limit: 20,
       query: searchQuery,
     })
     .then(function (response) {
@@ -109,20 +124,7 @@ function spotifyThis() {
       var album = response.tracks.items[0].album.name;
       var previewLink = response.tracks.items[0].preview_url;
 
-      if (!searchQuery) {
-        console.log(`
-
-      You forgot to search for a song. You ought to know better.
-
-      ============================================
-      Artist: Alanis Morissette
-      Song Title: You Oughta Know - 2015 Remaster
-      Album Name: Jagged Little Pill (Remastered)
-      Preview: https://p.scdn.co/mp3-preview/02c878f0d34bbcc4bf6a41236b6db697e52df11e?cid=b5ab8bcde06d410dbb01f07d9a8675a2
-      ============================================
-`)
-      } else {
-        console.log(`
+      console.log(`
 
       ============================================
       Artist: ${artist}
@@ -131,7 +133,6 @@ function spotifyThis() {
       Preview: ${previewLink}
       ============================================
 `);
-      }
     })
     .catch(function (err) {
       console.log(err);
@@ -139,31 +140,34 @@ function spotifyThis() {
 }
 
 function movie() {
+
+  if (!searchQuery) {
+    console.log(`
+
+  You forgot to search for a movie title. So you get this.
+
+  ===================================================================================================================================
+  Movie Title: Mr. Nobody
+  Release Date: 09-26-2013
+  IMDB Rating: 7.8/10
+  Rotten Tomatoes Rating: 67%
+  Country of Origin: Belgium, Germany, Canada, France, USA, UK
+  Language: English, Mohawk
+  Plot Summary: A boy stands on a station platform as a train is about to leave. 
+  Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. 
+  As long as he doesn't choose, anything is possible.      
+  Actors: Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham
+  ===================================================================================================================================
+`)
+return false;
+  }
+
   axios
     .get(`http://www.omdbapi.com/?t=${searchQuery}&apikey=trilogy`)
     .then(function (response) {
-      if (!searchQuery) {
-        console.log(`
-
-      Yoy forgot to search for a movie title. So you get this.
-
-      ===================================================================================================================================
-      Movie Title: Mr. Nobody
-      Release Date: 09-26-2013
-      IMDB Rating: 7.8/10
-      Rotten Tomatoes Rating: 67%
-      Country of Origin: Belgium, Germany, Canada, France, USA, UK
-      Language: English, Mohawk
-      Plot Summary: A boy stands on a station platform as a train is about to leave. Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. As long as he doesn't ch
-      oose, anything is possible.      
-      Actors: Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham
-      ===================================================================================================================================
-`)
-
-      } else {
         console.log(`
     
-      ====================
+      ===================================================================================================================================
       Movie Title: ${response.data.Title}
       Release Date: ${moment(response.data.Released).format("MM-DD-YYYY")}
       IMDB Rating: ${response.data.Ratings[0].Value}
@@ -172,9 +176,8 @@ function movie() {
       Language: ${response.data.Language}
       Plot Summary: ${response.data.Plot}
       Actors: ${response.data.Actors}
-      ====================
+      ===================================================================================================================================
 `);
-      }
     })
     .catch(function (err) {
       console.log(err);
